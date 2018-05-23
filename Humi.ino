@@ -7,7 +7,7 @@ char B = 0; // Assumes humidifer is off on boot.
 void setup()
 {
   Serial.begin(9600);
-  pinMode(1, OUTPUT);
+  digitalWrite(1,LOW)
 }
 
 
@@ -46,6 +46,7 @@ byte H()  //  Function to detirmine if humdity is high.
 
 void onOff()  //  Pulses current to the capacative spring to flip it.
 {
-  digitalWrite(1, HIGH);
-  digitalWrite(1, LOW);
+  pinMode(1, OUTPUT);
+  delay(500);
+  pinMode(1, INPUT)
 }
