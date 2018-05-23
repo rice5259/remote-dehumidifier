@@ -4,7 +4,6 @@ char A;
 char B = 0; // Assumes humidifer is off on boot.
 
 
-
 void setup()
 {
   Serial.begin(9600);
@@ -31,7 +30,7 @@ void loop()
   delay(2000);
 }
 
-byte H()  //  Function to
+byte H()  //  Function to detirmine if humdity is high.
 {
   DHT.read11(A0);
   if (DHT.humidity > 75)
