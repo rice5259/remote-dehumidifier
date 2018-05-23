@@ -1,14 +1,18 @@
 #include <dht.h>
 dht DHT;
 char A;
-char B = 0; // Assumes humidifer is off on boot. 
+char B = 0; // Assumes humidifer is off on boot.
+
+
 
 void setup()
 {
   Serial.begin(9600);
   pinMode(1, OUTPUT);
 }
-void loop() 
+
+
+void loop()
 {
   H();  //  Checks humidity data and returns 2 if over 75
   A = H();  //  Preparess H data for decision.
@@ -24,8 +28,10 @@ void loop()
     Serial.println("A + B = 2. Turning machine on");
     B = 1;  //  Declaring that machine is now on.
   }
+  delay(2000);
 }
-byte H()  //  Function to 
+
+byte H()  //  Function to
 {
   DHT.read11(A0);
   if (DHT.humidity > 75)
@@ -37,14 +43,9 @@ byte H()  //  Function to
     return 0;
   }
 }
-void onOff()
+
+void onOff()  //  Pulses current to the capacative spring to flip it.
 {
   digitalWrite(1, HIGH);
   digitalWrite(1, LOW);
 }
-
-
-
-
-
-
