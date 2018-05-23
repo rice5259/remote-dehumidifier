@@ -27,13 +27,14 @@ void loop()
     Serial.println("A + B = 2. Turning machine on");
     B = 1;  //  Declaring that machine is now on.
   }
+  Serial.println(DHT.humidity);
   delay(2000);
 }
 
 byte H()  //  Function to detirmine if humdity is high.
 {
   DHT.read11(A0);
-  if (DHT.humidity > 75)
+  if (DHT.humidity >= 75)
   {
     return 2;
   }
